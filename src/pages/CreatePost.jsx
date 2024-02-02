@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { db } from "../firebase-config"; // Assuming you have a Firebase configuration file
 
 function CreatePost() {
   const [title, setTitle] = useState("");
@@ -12,9 +13,19 @@ function CreatePost() {
     setPostContent(event.target.value);
   };
 
-  const handleSendPost = () => {
-    // Add logic to send the post with the title and content
-    console.log("Post sent:", { title, postContent });
+  const handleSendPost = async () => {
+    try {
+      // Add logic to send the post with the title and content to Firestore
+      await db.collection("posts").add({
+        title,
+        content: postContent,
+        timestamp: new Date(),
+      });
+
+      console.log("Post sent successfully!");
+    } catch (error) {
+      console.error("Error sending post:", error.message);
+    }
   };
 
   return (

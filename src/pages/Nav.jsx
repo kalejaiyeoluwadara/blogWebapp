@@ -1,31 +1,34 @@
 import React from "react";
 import { useGlobal } from "../context";
+
 function Nav() {
   const { setPage } = useGlobal();
+
   return (
-    <div className="w-screen nav fixed top-0 left-0 h-[10vh] flex gap-10 bg-black text-white items-center justify-center ">
-      <p
-        onClick={() => {
-          setPage("home");
-        }}
-      >
-        Home
-      </p>
-      <p
-        onClick={() => {
-          setPage("login");
-        }}
-      >
-        Login
-      </p>
-      <p
-        onClick={() => {
-          setPage("post");
-        }}
-      >
-        CreatePost
-      </p>
-    </div>
+    <nav className="bg-gray-800 text-white h-[10vh] p-4">
+      <div className="container mx-auto flex items-center justify-center font-[600]">
+        <div className="flex space-x-4">
+          <button
+            className="hover:text-gray-300"
+            onClick={() => setPage("home")}
+          >
+            Home
+          </button>
+          <button
+            className="hover:text-gray-300"
+            onClick={() => setPage("login")}
+          >
+            Login
+          </button>
+          <button
+            className="hover:text-gray-300"
+            onClick={() => setPage("post")}
+          >
+            Create Post
+          </button>
+        </div>
+      </div>
+    </nav>
   );
 }
 

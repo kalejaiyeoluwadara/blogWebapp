@@ -13,7 +13,9 @@
     "firebase": "^10.7.2",
     "framer-motion": "^10.12.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3",
+    "redux": "^5.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
